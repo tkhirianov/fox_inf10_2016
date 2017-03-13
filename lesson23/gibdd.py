@@ -34,7 +34,8 @@ def is_not_chief_reg_number(reg_number):
     :param reg_number: тип str, номер автомобиля (предполагается 6 символов).
     :return: тип bool - True, если данный номер не является номером начальника
     """
-    return False  #FIXME
+    chief_number = "A777AA"
+    return not reg_number.casefold() == chief_number.casefold()
 
 
 def speed_violation(velocity):
@@ -43,7 +44,7 @@ def speed_violation(velocity):
     :param velocity: тип float, скорость в километрах час
     :return: bool - True, если нарушение ПДД установлено
     """
-    pass  #FIXME
+    return velocity >= 70
 
 
 def tax_by_reg_number(reg_number):
@@ -54,7 +55,13 @@ def tax_by_reg_number(reg_number):
                 (предполагается 6 символов, цифры в индексах с 1-го по 3-й включ.).
     :return:
     """
-    pass  #fIXME
+    a, b, c = [int(x) for x in reg_number[1:4]]
+    if a == b == c:
+        return 5000
+    elif a == b or a == c or b == c:
+        return 1000
+    else:
+        return 500
 
 
 answer = calculate_inspectors_salary()
