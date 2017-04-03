@@ -50,7 +50,7 @@ def insert_sort(A):
 
 
 def bubble_sort(A):
-    """ bubble_sort """
+    """ Сортировка методом пузырька """
     N = len(A)
     for bypass in range(1, N):
         for i in range(0, N-bypass):
